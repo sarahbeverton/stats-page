@@ -1,18 +1,30 @@
 <template>
     <div>
-        <h2>Login</h2>
-        <form @submit.prevent="handleSubmit">
-            <div>
-                <label for="username">Username:</label>
-                <input id="username" v-model="username" type="text" autocomplete="username" required>
+        <div class="rvt-layout__wrapper [ rvt-p-tb-xl ]">
+            <div class="rvt-container-lg">
+                <div class="rvt-row">
+                    <div class="rvt-cols-4-md rvt-flow rvt-prose">
+                        <form @submit.prevent="handleSubmit">
+                            <fieldset class="rvt-fieldset">
+                                <legend class="rvt-legend [ rvt-ts-18 rvt-border-bottom rvt-p-bottom-xs ]">Login</legend>
+                                <p class="rvt-ts-14">Required fields are marked with <span class="rvt-color-orange-500 rvt-text-bold">*</span></p>
+                                <div class="rvt-m-top-sm">
+                                    <label class="rvt-label" for="username">Username <span class="rvt-color-orange-500 rvt-text-bold">*</span></label>
+                                    <input class="rvt-input" type="text" id="username" autocomplete="username" v-model="username" required>
+                                </div>
+                                <div class="rvt-m-top-sm">
+                                    <label class="rvt-label" for="password">Password <span class="rvt-color-orange-500 rvt-text-bold">*</span></label>
+                                    <input class="rvt-input" type="password" id="password" autocomplete="current-password" v-model="password" required>
+                                </div>
+                                <div class="rvt-m-top-lg">
+                                </div>
+                            </fieldset>
+                            <button type="submit" class="rvt-button">Login</button>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div>
-                <label for="password">Password:</label>
-                <input id="password" v-model="password" type="password" autocomplete="current-password" required>
-            </div>
-            <button type="submit">Login</button>
-            <div>{{  user }}</div>
-        </form>
+        </div>
     </div>
 </template>
   

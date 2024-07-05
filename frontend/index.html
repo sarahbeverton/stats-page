@@ -2,12 +2,23 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" href="/assets/favicon.ico" />
+    <link rel="stylesheet" href="https://unpkg.com/rivet-core@2.7.0/css/rivet.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + Vue + TS</title>
+    <title>Stats page</title>
   </head>
   <body>
     <div id="app"></div>
     <script type="module" src="/src/main.ts"></script>
+    <script src="https://unpkg.com/rivet-core@2.7.0/js/rivet.min.js" defer></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          if (typeof Rivet !== 'undefined') {
+              Rivet.init();
+          } else {
+              console.error('Rivet is not defined');
+          }
+      });
+    </script>
   </body>
 </html>
