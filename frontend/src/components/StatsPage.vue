@@ -7,7 +7,7 @@
                         <div class="rvt-row">
                             <div class="rvt-cols-4-md">
                                 <div class="rvt-card">
-                                    <div class="rvt-card__image">
+                                    <div class="rvt-card__image hide-on-mobile">
                                         <img src="../assets/img/twitter_logo.png" style="background-color: white" alt="Twitter logo">
                                     </div>
                                     <div class="rvt-card__body">
@@ -22,7 +22,7 @@
                             </div>
                             <div class="rvt-cols-4-md">
                                 <div class="rvt-card">
-                                    <div class="rvt-card__image tools">
+                                    <div class="rvt-card__image hide-on-mobile tools">
                                         <img src="../assets/img/line-chart.png" alt="OSoMe tools logo">
                                     </div>
                                     <div class="rvt-card__body">
@@ -37,7 +37,7 @@
                             </div>
                             <div class="rvt-cols-4-md">
                                 <div class="rvt-card">
-                                    <div class="rvt-card__image">
+                                    <div class="rvt-card__image hide-on-mobile">
                                         <img src="../assets/img/twitter-robot-bird.png" alt="Botometer logo">
                                     </div>
                                     <div class="rvt-card__body">
@@ -127,7 +127,7 @@
                                 <div class="rvt-accordion" data-rvt-accordion="example-accordion">
                                     <h3 class="rvt-accordion__summary">
                                         <button class="rvt-accordion__toggle" data-rvt-accordion-trigger>
-                                        <span class="rvt-accordion__toggle-text">{{ file.filename }}</span>
+                                        <span class="rvt-accordion__toggle-text">{{ file.displayName }}</span>
                                         <div class="rvt-accordion__toggle-icon">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
                                             <g fill="currentColor">
@@ -306,6 +306,13 @@ export default {
                 } else {
                     return a.filename.localeCompare(b.filename);
                 }
+            }).map(item => {
+                const yearMatch = item.filename.match(/\d{4}$/);
+                if (yearMatch) {
+                    return { ...item, displayName: yearMatch[0] };
+                } else {
+                    return { ...item, displayName: "Moe's Tavern" };
+                }
             });
         });
 
@@ -472,6 +479,11 @@ td {
     margin-top: 5em;
 }
 
+@media (max-width: 767px) {
+    .hide-on-mobile {
+        display: none;
+    }
+}
 
 </style>
   
